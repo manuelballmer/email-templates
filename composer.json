@@ -39,14 +39,14 @@
     },
     "autoload": {
         "psr-4": {
-            "manuelballmer\\EmailTemplates\\": "src",
-            "manuelballmer\\EmailTemplates\\Database\\Factories\\": "database/factories/",
-            "manuelballmer\\EmailTemplates\\Database\\Seeders\\": "database/seeders/"
+            "Visualbuilder\\EmailTemplates\\": "src",
+            "Visualbuilder\\EmailTemplates\\Database\\Factories\\": "database/factories/",
+            "Visualbuilder\\EmailTemplates\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "manuelballmer\\EmailTemplates\\Tests\\": "tests"
+            "Visualbuilder\\EmailTemplates\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -67,10 +67,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "manuelballmer\\EmailTemplates\\EmailTemplatesServiceProvider"
+                "Visualbuilder\\EmailTemplates\\EmailTemplatesServiceProvider"
             ],
             "aliases": {
-                "EmailTemplates": "manuelballmer\\EmailTemplates\\EmailTemplatesFacade"
+                "EmailTemplates": "Visualbuilder\\EmailTemplates\\EmailTemplatesFacade"
             }
         }
     },
