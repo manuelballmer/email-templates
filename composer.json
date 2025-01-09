@@ -1,11 +1,11 @@
 {
-    "name": "visualbuilder/email-templates",
-    "description": "Email Template editor for Filament",
+    "name": "manuelballmer/email-templates",
+    "description": "Email Template editor for Filament, enhanced for tenancy",
     "keywords": [
         "visualbuilder",
         "email-templates"
     ],
-    "homepage": "https://github.com/visualbuilder/email-templates",
+    "homepage": "https://github.com/manuelballmer/email-templates",
     "license": "GPL-2.0-or-later",
     "type": "library",
     "authors": [
@@ -13,6 +13,11 @@
             "name": "Visual Builder",
             "email": "support@ekouk.com",
             "role": "Developer"
+        },
+        {
+            "name": "Manuel Ballmer",
+            "email": "manuel.ballmer@gmail.com",
+            "role": "Forker"
         }
     ],
     "require": {
@@ -34,14 +39,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Visualbuilder\\EmailTemplates\\": "src",
-            "Visualbuilder\\EmailTemplates\\Database\\Factories\\": "database/factories/",
-            "Visualbuilder\\EmailTemplates\\Database\\Seeders\\": "database/seeders/"
+            "manuelballmer\\EmailTemplates\\": "src",
+            "manuelballmer\\EmailTemplates\\Database\\Factories\\": "database/factories/",
+            "manuelballmer\\EmailTemplates\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Visualbuilder\\EmailTemplates\\Tests\\": "tests"
+            "manuelballmer\\EmailTemplates\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -62,10 +67,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Visualbuilder\\EmailTemplates\\EmailTemplatesServiceProvider"
+                "manuelballmer\\EmailTemplates\\EmailTemplatesServiceProvider"
             ],
             "aliases": {
-                "EmailTemplates": "Visualbuilder\\EmailTemplates\\EmailTemplatesFacade"
+                "EmailTemplates": "manuelballmer\\EmailTemplates\\EmailTemplatesFacade"
             }
         }
     },
