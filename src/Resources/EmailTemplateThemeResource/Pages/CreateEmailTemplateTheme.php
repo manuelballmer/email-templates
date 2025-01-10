@@ -1,9 +1,9 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource\Pages;
+namespace Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource\Pages;
 
 use Filament\Resources\Pages\CreateRecord;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource;
 
 class CreateEmailTemplateTheme extends CreateRecord
 {

@@ -1,17 +1,17 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates;
+namespace Manuelballmer\EmailTemplates;
 
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Visualbuilder\EmailTemplates\Commands\InstallCommand;
-use Visualbuilder\EmailTemplates\Contracts\CreateMailableInterface;
-use Visualbuilder\EmailTemplates\Contracts\FormHelperInterface;
+use Manuelballmer\EmailTemplates\Commands\InstallCommand;
+use Manuelballmer\EmailTemplates\Contracts\CreateMailableInterface;
+use Manuelballmer\EmailTemplates\Contracts\FormHelperInterface;
 
-use Visualbuilder\EmailTemplates\Helpers\CreateMailableHelper;
-use Visualbuilder\EmailTemplates\Helpers\FormHelper;
+use Manuelballmer\EmailTemplates\Helpers\CreateMailableHelper;
+use Manuelballmer\EmailTemplates\Helpers\FormHelper;
 
 class EmailTemplatesServiceProvider extends PackageServiceProvider
 {
@@ -42,7 +42,7 @@ class EmailTemplatesServiceProvider extends PackageServiceProvider
 
         // Add the binding for TokenReplacementInterface
         $this->app->bind(
-            \Visualbuilder\EmailTemplates\Contracts\TokenReplacementInterface::class,
+            \Manuelballmer\EmailTemplates\Contracts\TokenReplacementInterface::class,
             config('filament-email-templates.tokenHelperClass')
         );
     }

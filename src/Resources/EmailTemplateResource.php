@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Resources;
+namespace Manuelballmer\EmailTemplates\Resources;
 
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use Filament\Forms\Components\FileUpload;
@@ -24,11 +24,11 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
-use Visualbuilder\EmailTemplates\Contracts\CreateMailableInterface;
-use Visualbuilder\EmailTemplates\Contracts\FormHelperInterface;
-use Visualbuilder\EmailTemplates\EmailTemplatesPlugin;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource\Pages;
+use Manuelballmer\EmailTemplates\Contracts\CreateMailableInterface;
+use Manuelballmer\EmailTemplates\Contracts\FormHelperInterface;
+use Manuelballmer\EmailTemplates\EmailTemplatesPlugin;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource\Pages;
 
 class EmailTemplateResource extends Resource
 {

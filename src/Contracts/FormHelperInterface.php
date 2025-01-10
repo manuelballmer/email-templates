@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Contracts;
+namespace Manuelballmer\EmailTemplates\Contracts;
 
 interface FormHelperInterface
 {

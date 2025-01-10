@@ -1,10 +1,10 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Traits;
+namespace Manuelballmer\EmailTemplates\Traits;
 
 use Illuminate\Support\Facades\App;
-use Visualbuilder\EmailTemplates\Facades\TokenHelper;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Facades\TokenHelper;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
 
 trait BuildGenericEmail
 {

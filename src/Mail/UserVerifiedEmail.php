@@ -1,11 +1,11 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Mail;
+namespace Manuelballmer\EmailTemplates\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Visualbuilder\EmailTemplates\Traits\BuildGenericEmail;
+use Manuelballmer\EmailTemplates\Traits\BuildGenericEmail;
 
 class UserVerifiedEmail extends Mailable
 {

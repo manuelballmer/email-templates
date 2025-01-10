@@ -1,11 +1,11 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Models;
+namespace Manuelballmer\EmailTemplates\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Visualbuilder\EmailTemplates\Database\Factories\EmailTemplateThemeFactory;
+use Manuelballmer\EmailTemplates\Database\Factories\EmailTemplateThemeFactory;
 
 class EmailTemplateTheme extends Model
 {

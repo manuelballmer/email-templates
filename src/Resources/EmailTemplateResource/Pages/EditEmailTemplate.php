@@ -1,12 +1,12 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Resources\EmailTemplateResource\Pages;
+namespace Manuelballmer\EmailTemplates\Resources\EmailTemplateResource\Pages;
 
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\View\View;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;

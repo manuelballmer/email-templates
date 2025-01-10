@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Resources;
+namespace Manuelballmer\EmailTemplates\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -10,10 +10,10 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Visualbuilder\EmailTemplates\EmailTemplatesPlugin;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
-use Visualbuilder\EmailTemplates\Models\EmailTemplateTheme;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource\Pages;
+use Manuelballmer\EmailTemplates\EmailTemplatesPlugin;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Models\EmailTemplateTheme;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource\Pages;
 
 class EmailTemplateThemeResource extends Resource
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Helpers;
+namespace Manuelballmer\EmailTemplates\Helpers;
 
-use Visualbuilder\EmailTemplates\Contracts\FormHelperInterface;
+use Manuelballmer\EmailTemplates\Contracts\FormHelperInterface;
 
 class FormHelper implements FormHelperInterface
 {

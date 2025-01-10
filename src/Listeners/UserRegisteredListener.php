@@ -1,9 +1,9 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Listeners;
+namespace Manuelballmer\EmailTemplates\Listeners;
 
 use Illuminate\Auth\Events\Registered;
-use Visualbuilder\EmailTemplates\Notifications\UserRegisteredNotification;
+use Manuelballmer\EmailTemplates\Notifications\UserRegisteredNotification;
 
 class UserRegisteredListener
 {

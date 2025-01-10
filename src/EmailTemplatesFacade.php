@@ -1,11 +1,11 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates;
+namespace Manuelballmer\EmailTemplates;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Visualbuilder\EmailTemplates\Skeleton\SkeletonClass
+ * @see \Manuelballmer\EmailTemplates\Skeleton\SkeletonClass
  */
 class EmailTemplatesFacade extends Facade
 {

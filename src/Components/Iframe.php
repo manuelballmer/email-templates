@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Components;
+namespace Manuelballmer\EmailTemplates\Components;
 
 use Filament\Forms\Components\Component;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Listeners;
+namespace Manuelballmer\EmailTemplates\Listeners;
 
 use Illuminate\Auth\Events\PasswordReset;
 
-use Visualbuilder\EmailTemplates\Notifications\UserPasswordResetNotification;
+use Manuelballmer\EmailTemplates\Notifications\UserPasswordResetNotification;
 
 class PasswordResetListener
 {

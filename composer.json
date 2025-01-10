@@ -2,7 +2,7 @@
     "name": "manuelballmer/email-templates",
     "description": "Email Template editor for Filament, enhanced for tenancy",
     "keywords": [
-        "visualbuilder",
+        "Manuelballmer",
         "email-templates"
     ],
     "homepage": "https://github.com/manuelballmer/email-templates",
@@ -40,14 +40,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Visualbuilder\\EmailTemplates\\": "src",
-            "Visualbuilder\\EmailTemplates\\Database\\Factories\\": "database/factories/",
-            "Visualbuilder\\EmailTemplates\\Database\\Seeders\\": "database/seeders/"
+            "Manuelballmer\\EmailTemplates\\": "src",
+            "Manuelballmer\\EmailTemplates\\Database\\Factories\\": "database/factories/",
+            "Manuelballmer\\EmailTemplates\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Visualbuilder\\EmailTemplates\\Tests\\": "tests"
+            "Manuelballmer\\EmailTemplates\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -68,10 +68,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Visualbuilder\\EmailTemplates\\EmailTemplatesServiceProvider"
+                "Manuelballmer\\EmailTemplates\\EmailTemplatesServiceProvider"
             ],
             "aliases": {
-                "EmailTemplates": "Visualbuilder\\EmailTemplates\\EmailTemplatesFacade"
+                "EmailTemplates": "Manuelballmer\\EmailTemplates\\EmailTemplatesFacade"
             }
         }
     },

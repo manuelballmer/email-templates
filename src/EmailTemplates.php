@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates;
+namespace Manuelballmer\EmailTemplates;
 
 class EmailTemplates
 {

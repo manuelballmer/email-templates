@@ -1,11 +1,11 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Database\Factories;
+namespace Manuelballmer\EmailTemplates\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
 
 class EmailTemplateFactory extends Factory
 {
@@ -38,6 +38,7 @@ class EmailTemplateFactory extends Factory
             'created_at' => now(),
             'updated_at' => now(),
             'deleted_at' => null,
+            'team_id'    => null,
         ];
     }
 }
