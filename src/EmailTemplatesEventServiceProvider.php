@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates;
+namespace Manuelballmer\EmailTemplates;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Auth\Events\Login;
@@ -8,11 +8,11 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Visualbuilder\EmailTemplates\Listeners\PasswordResetListener;
-use Visualbuilder\EmailTemplates\Listeners\UserLockoutListener;
-use Visualbuilder\EmailTemplates\Listeners\UserLoginListener;
-use Visualbuilder\EmailTemplates\Listeners\UserRegisteredListener;
-use Visualbuilder\EmailTemplates\Listeners\UserVerifiedListener;
+use Manuelballmer\EmailTemplates\Listeners\PasswordResetListener;
+use Manuelballmer\EmailTemplates\Listeners\UserLockoutListener;
+use Manuelballmer\EmailTemplates\Listeners\UserLoginListener;
+use Manuelballmer\EmailTemplates\Listeners\UserRegisteredListener;
+use Manuelballmer\EmailTemplates\Listeners\UserVerifiedListener;
 
 class EmailTemplatesEventServiceProvider extends ServiceProvider
 {

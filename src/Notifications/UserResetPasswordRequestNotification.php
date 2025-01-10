@@ -1,10 +1,10 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Notifications;
+namespace Manuelballmer\EmailTemplates\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Visualbuilder\EmailTemplates\Mail\UserRequestPasswordResetEmail;
+use Manuelballmer\EmailTemplates\Mail\UserRequestPasswordResetEmail;
 
 class UserResetPasswordRequestNotification extends Notification
 {

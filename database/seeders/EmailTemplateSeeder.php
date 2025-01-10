@@ -3,12 +3,13 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
 
 class EmailTemplateSeeder extends Seeder
 {
     public function run() {
         $emailTemplates = [
+
             [
                 'key'       => 'user-welcome',
                 'from'      =>  ['email'=>config('mail.from.address'),'name'=>config('mail.from.name')],

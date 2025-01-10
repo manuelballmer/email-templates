@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Str;
-use Visualbuilder\EmailTemplates\Mail\UserLockedOutEmail;
-use Visualbuilder\EmailTemplates\Mail\UserLoginEmail;
-use Visualbuilder\EmailTemplates\Mail\UserPasswordResetSuccessEmail;
-use Visualbuilder\EmailTemplates\Mail\UserRegisteredEmail;
-use Visualbuilder\EmailTemplates\Mail\UserRequestPasswordResetEmail;
-use Visualbuilder\EmailTemplates\Mail\UserVerifiedEmail;
-use Visualbuilder\EmailTemplates\Mail\UserVerifyEmail;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
-use Visualbuilder\EmailTemplates\Tests\Models\User;
+use Manuelballmer\EmailTemplates\Mail\UserLockedOutEmail;
+use Manuelballmer\EmailTemplates\Mail\UserLoginEmail;
+use Manuelballmer\EmailTemplates\Mail\UserPasswordResetSuccessEmail;
+use Manuelballmer\EmailTemplates\Mail\UserRegisteredEmail;
+use Manuelballmer\EmailTemplates\Mail\UserRequestPasswordResetEmail;
+use Manuelballmer\EmailTemplates\Mail\UserVerifiedEmail;
+use Manuelballmer\EmailTemplates\Mail\UserVerifyEmail;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Tests\Models\User;
 
 it('can replace tokens in user registered email', function () {
 

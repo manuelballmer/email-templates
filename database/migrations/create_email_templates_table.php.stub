@@ -15,6 +15,9 @@ return new class extends Migration
     {
       Schema::create(config('filament-email-templates.table_name'), function (Blueprint $table) {
                  $columnName = config('filament-email-templates.theme_table_name') . '_id';
+                 $tenantColumnName = config('filament-email-templates.tenant_foreign_column_name');
+                 $tenantTableName = config('filament-email-templates.tenant_model_table');
+                 
                  $table->increments('id');
                  $table->unsignedInteger($columnName)->nullable();
                  $table->string('key', 191)->comment('Must be unique when combined with language');
@@ -31,7 +34,7 @@ return new class extends Migration
                  $table->string('logo', 191)->nullable();
                  $table->timestamps();
                  $table->softDeletes();
-                 $table->foreignUuid('tenant_id')->references('id')->on('teams)->onDelete('set null');
+                 $table->foreignUuid($tenantColumnName)->references('id')->on($tenantTableName)->nullable;  //todo if its int 
                  $table->unique(['key', 'language']);
                  $table->foreign($columnName)->references('id')->on(config('filament-email-templates.theme_table_name'))->onDelete('set null');
              });

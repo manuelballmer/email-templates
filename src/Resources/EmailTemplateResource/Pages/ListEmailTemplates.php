@@ -1,10 +1,10 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Resources\EmailTemplateResource\Pages;
+namespace Manuelballmer\EmailTemplates\Resources\EmailTemplateResource\Pages;
 
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource;
 
 class ListEmailTemplates extends ListRecords
 {

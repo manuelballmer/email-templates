@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Commands;
+namespace Manuelballmer\EmailTemplates\Commands;
 
 use Database\Seeders\EmailTemplateSeeder;
 use Database\Seeders\EmailTemplateThemeSeeder;

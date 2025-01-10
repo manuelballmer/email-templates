@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Resources;
+namespace Manuelballmer\EmailTemplates\Resources;
 
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
@@ -32,11 +32,11 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use Illuminate\View\View;
-use Visualbuilder\EmailTemplates\Contracts\CreateMailableInterface;
-use Visualbuilder\EmailTemplates\Contracts\FormHelperInterface;
-use Visualbuilder\EmailTemplates\EmailTemplatesPlugin;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource\Pages;
+use Manuelballmer\EmailTemplates\Contracts\CreateMailableInterface;
+use Manuelballmer\EmailTemplates\Contracts\FormHelperInterface;
+use Manuelballmer\EmailTemplates\EmailTemplatesPlugin;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource\Pages;
 use Visualbuilder\FilamentTinyEditor\TinyEditor;
 
 class EmailTemplateResource extends Resource

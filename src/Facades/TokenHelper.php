@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Facades;
+namespace Manuelballmer\EmailTemplates\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -8,7 +8,7 @@ class TokenHelper extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Visualbuilder\EmailTemplates\Contracts\TokenReplacementInterface::class;
+        return \Manuelballmer\EmailTemplates\Contracts\TokenReplacementInterface::class;
     }
 
     public static function replace(string $content, $models): string

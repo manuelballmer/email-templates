@@ -1,12 +1,12 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Helpers;
+namespace Manuelballmer\EmailTemplates\Helpers;
 
 use Exception;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use Visualbuilder\EmailTemplates\Contracts\CreateMailableInterface;
+use Manuelballmer\EmailTemplates\Contracts\CreateMailableInterface;
 
 class CreateMailableHelper implements CreateMailableInterface
 {

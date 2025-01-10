@@ -1,13 +1,13 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates;
+namespace Manuelballmer\EmailTemplates;
 
 use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource;
 
 class EmailTemplatesPlugin implements Plugin
 {

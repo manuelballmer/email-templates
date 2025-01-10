@@ -1,12 +1,12 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Mail;
+namespace Manuelballmer\EmailTemplates\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Visualbuilder\EmailTemplates\Traits\BuildGenericEmail;
+use Manuelballmer\EmailTemplates\Traits\BuildGenericEmail;
 
 class UserVerifyEmail extends Mailable
 {

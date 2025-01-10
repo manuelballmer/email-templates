@@ -1,9 +1,9 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Listeners;
+namespace Manuelballmer\EmailTemplates\Listeners;
 
 use Illuminate\Auth\Events\Login;
-use Visualbuilder\EmailTemplates\Notifications\UserLockoutNotification;
+use Manuelballmer\EmailTemplates\Notifications\UserLockoutNotification;
 
 class UserLockoutListener
 {

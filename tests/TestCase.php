@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Tests;
+namespace Manuelballmer\EmailTemplates\Tests;
 
 use Visualbuilder\FilamentTinyEditor\TinyeditorServiceProvider;
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
@@ -20,9 +20,9 @@ use Illuminate\Support\ViewErrorBag;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
-use Visualbuilder\EmailTemplates\EmailTemplatesServiceProvider;
-use Visualbuilder\EmailTemplates\Models\EmailTemplateTheme;
-use Visualbuilder\EmailTemplates\Tests\Models\User;
+use Manuelballmer\EmailTemplates\EmailTemplatesServiceProvider;
+use Manuelballmer\EmailTemplates\Models\EmailTemplateTheme;
+use Manuelballmer\EmailTemplates\Tests\Models\User;
 
 class TestCase extends Orchestra
 {
@@ -38,7 +38,7 @@ class TestCase extends Orchestra
             User::create(['email' => 'admin@domain.com', 'name' => 'Admin', 'password' => 'password'])
         );
 
-        Config::set('filament-email-templates.recipients', ['\\Visualbuilder\\EmailTemplates\\Tests\\Models\\User']);
+        Config::set('filament-email-templates.recipients', ['\\Manuelballmer\\EmailTemplates\\Tests\\Models\\User']);
         Config::set('auth.providers.users.model', User::class);
         View::addNamespace('vb-email-templates', __DIR__.'/../resources/views');
         View::share('errors', new ViewErrorBag);

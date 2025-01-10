@@ -1,11 +1,11 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Notifications;
+namespace Manuelballmer\EmailTemplates\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
-use Visualbuilder\EmailTemplates\Mail\UserLoginEmail;
+use Manuelballmer\EmailTemplates\Mail\UserLoginEmail;
 
 // implements ShouldQueue
 class UserLoginNotification extends Notification

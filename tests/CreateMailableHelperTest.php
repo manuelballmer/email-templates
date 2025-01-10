@@ -4,8 +4,8 @@
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Visualbuilder\EmailTemplates\Helpers\CreateMailableHelper;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Helpers\CreateMailableHelper;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
 
 it('creates a mailable class if it does not exist', function () {
     // Given: An email template record

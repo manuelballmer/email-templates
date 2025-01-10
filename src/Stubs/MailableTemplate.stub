@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Mail\Visualbuilder\EmailTemplates;
+namespace App\Mail\Manuelballmer\EmailTemplates;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Visualbuilder\EmailTemplates\Traits\BuildGenericEmail;
+use Manuelballmer\EmailTemplates\Traits\BuildGenericEmail;
 
 class {{className}} extends Mailable
 {

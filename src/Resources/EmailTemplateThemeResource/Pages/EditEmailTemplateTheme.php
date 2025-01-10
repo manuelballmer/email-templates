@@ -1,12 +1,12 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource\Pages;
+namespace Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource\Pages;
 
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource;
 use Illuminate\Database\Eloquent\Model;
-use Visualbuilder\EmailTemplates\Models\EmailTemplateTheme;
+use Manuelballmer\EmailTemplates\Models\EmailTemplateTheme;
 
 class EditEmailTemplateTheme extends EditRecord
 {

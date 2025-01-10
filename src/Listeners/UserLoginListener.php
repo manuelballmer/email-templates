@@ -1,9 +1,9 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Listeners;
+namespace Manuelballmer\EmailTemplates\Listeners;
 
 use Illuminate\Auth\Events\Login;
-use Visualbuilder\EmailTemplates\Notifications\UserLoginNotification;
+use Manuelballmer\EmailTemplates\Notifications\UserLoginNotification;
 
 class UserLoginListener
 {

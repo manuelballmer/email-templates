@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Visualbuilder\EmailTemplates\Models\EmailTemplateTheme;
+use Manuelballmer\EmailTemplates\Models\EmailTemplateTheme;
 use Illuminate\Database\Seeder;
 
 class EmailTemplateThemeSeeder extends Seeder

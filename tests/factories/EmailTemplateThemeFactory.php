@@ -1,9 +1,9 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Database\Factories;
+namespace Manuelballmer\EmailTemplates\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Visualbuilder\EmailTemplates\Models\EmailTemplateTheme;
+use Manuelballmer\EmailTemplates\Models\EmailTemplateTheme;
 
 class EmailTemplateThemeFactory extends Factory
 {

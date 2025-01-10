@@ -1,9 +1,20 @@
 <?php
 
 use Filament\Pages\Enums\SubNavigationPosition;
-use Visualbuilder\EmailTemplates\DefaultTokenHelper;
+use Manuelballmer\EmailTemplates\DefaultTokenHelper;
 
 return [
+    /**
+     * If you wish to customise the table name change this before migration
+     */
+    'tenant' => 'vb_email_templates',
+    'tenant_model' => 'Team',
+    'tenant_model_table' => 'teams',
+    'tenant_foreign_column_name' => 'team_id',
+    'tenant_key_type' => 'uuid',
+    
+
+
     /**
      * If you wish to customise the table name change this before migration
      */
@@ -14,7 +25,7 @@ return [
     /**
      * Mail Classes will be generated into this directory
      */
-    "mailable_directory" => 'Mail/Visualbuilder/EmailTemplates',
+    "mailable_directory" => 'Mail/Manuelballmer/EmailTemplates',
 
     /**
      * If you want to use your own token helper replace this class
@@ -22,7 +33,7 @@ return [
      *
      *  namespace App\Helpers
      *
-     *  use Visualbuilder\EmailTemplates\Contracts\TokenReplacementInterface;
+     *  use Manuelballmer\EmailTemplates\Contracts\TokenReplacementInterface;
      *
      *  class MyTokenHelper implements TokenReplacementInterface
      *  {

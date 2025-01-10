@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Tests;
+namespace Manuelballmer\EmailTemplates\Tests;
 
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -15,9 +15,9 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Visualbuilder\EmailTemplates\EmailTemplatesPlugin;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource;
+use Manuelballmer\EmailTemplates\EmailTemplatesPlugin;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource;
 
 class AdminPanelProvider extends PanelProvider
 {

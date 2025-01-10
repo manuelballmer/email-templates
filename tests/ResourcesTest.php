@@ -9,11 +9,11 @@ use Filament\Pages\Actions\RestoreAction;
 use function Pest\Laravel\get;
 use function Pest\Livewire\livewire;
 
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource\Pages\CreateEmailTemplate;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource\Pages\EditEmailTemplate;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource\Pages\ListEmailTemplates;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource\Pages\CreateEmailTemplate;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource\Pages\EditEmailTemplate;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource\Pages\ListEmailTemplates;
 
 beforeEach(function () {
     $this->markTestSkipped('Livewire tests temporarily disabled');

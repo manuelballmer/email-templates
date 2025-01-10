@@ -1,10 +1,10 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Resources\EmailTemplateResource\Pages;
+namespace Manuelballmer\EmailTemplates\Resources\EmailTemplateResource\Pages;
 
 use Illuminate\Database\Eloquent\Model;
 use Filament\Resources\Pages\CreateRecord;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateResource;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource;
 
 class CreateEmailTemplate extends CreateRecord
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates;
+namespace Manuelballmer\EmailTemplates;
 
 use App\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Visualbuilder\EmailTemplates\Mail\UserVerifyEmail;
+use Manuelballmer\EmailTemplates\Mail\UserVerifyEmail;
 
 class EmailTemplatesAuthServiceProvider extends ServiceProvider
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Tests\Models;
+namespace Manuelballmer\EmailTemplates\Tests\Models;
 
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;

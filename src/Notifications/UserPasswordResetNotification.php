@@ -1,11 +1,11 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Notifications;
+namespace Manuelballmer\EmailTemplates\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
-use Visualbuilder\EmailTemplates\Mail\UserPasswordResetSuccessEmail;
+use Manuelballmer\EmailTemplates\Mail\UserPasswordResetSuccessEmail;
 
 // implements ShouldQueue
 class UserPasswordResetNotification extends Notification

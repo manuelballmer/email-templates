@@ -1,6 +1,6 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Models;
+namespace Manuelballmer\EmailTemplates\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
-use Visualbuilder\EmailTemplates\Database\Factories\EmailTemplateFactory;
-use Visualbuilder\EmailTemplates\Facades\TokenHelper;
+use Manuelballmer\EmailTemplates\Database\Factories\EmailTemplateFactory;
+use Manuelballmer\EmailTemplates\Facades\TokenHelper;
 
 
 /**
@@ -280,7 +280,7 @@ class EmailTemplate extends Model
     public function getMailableClass()
     {
         $className = Str::studly($this->key);
-        $directory = str_replace('/', '\\', config('filament-email-templates.mailable_directory', 'Mail/Visualbuilder/EmailTemplates'));
+        $directory = str_replace('/', '\\', config('filament-email-templates.mailable_directory', 'Mail/Manuelballmer/EmailTemplates'));
         $fullClassName = "App\\" . rtrim($directory, '\\') . "\\{$className}";
 
         if (!class_exists($fullClassName)) {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates;
+namespace Manuelballmer\EmailTemplates;
 
 
 use Illuminate\Support\Facades\View;
-use Visualbuilder\EmailTemplates\Contracts\TokenReplacementInterface;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Contracts\TokenReplacementInterface;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
 
 
 class DefaultTokenHelper implements TokenReplacementInterface

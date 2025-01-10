@@ -1,11 +1,11 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Notifications;
+namespace Manuelballmer\EmailTemplates\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
-use Visualbuilder\EmailTemplates\Mail\UserLockedOutEmail;
+use Manuelballmer\EmailTemplates\Mail\UserLockedOutEmail;
 
 // implements ShouldQueue
 class UserLockoutNotification extends Notification

@@ -1,10 +1,10 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Database\Factories;
+namespace Manuelballmer\EmailTemplates\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Visualbuilder\EmailTemplates\Models\EmailTemplateTheme;
+use Manuelballmer\EmailTemplates\Models\EmailTemplateTheme;
 
 class EmailTemplateThemeFactory extends Factory
 {
@@ -24,6 +24,7 @@ class EmailTemplateThemeFactory extends Factory
             'name' => $this->faker->name,
             'colours' => '{}',
             'is_default' => 0,
+            'team_id' => null,
         ];
     }
 }

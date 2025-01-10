@@ -1,9 +1,9 @@
 <?php
 
-namespace Visualbuilder\EmailTemplates\Listeners;
+namespace Manuelballmer\EmailTemplates\Listeners;
 
 use Illuminate\Auth\Events\Verified;
-use Visualbuilder\EmailTemplates\Notifications\UserVerifiedNotification;
+use Manuelballmer\EmailTemplates\Notifications\UserVerifiedNotification;
 
 class UserVerifiedListener
 {
