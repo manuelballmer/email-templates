@@ -200,6 +200,12 @@ template.
 
 For reference this is done in the `EmailTemplatesAuthServiceProvider`.
 
+> **Important** Register this provider so the override takes effect.
+> Add `Visualbuilder\EmailTemplates\EmailTemplatesAuthServiceProvider::class`
+> to the `providers` array in `config/app.php` (or within your own
+> `AppServiceProvider`). Without this, Laravel will send its default
+> verification email instead of your customised template.
+
 This can be disabled in the config.
 
 To Enable email verification ensure the User model implements the Laravel MustVerifyEmail contract:-
@@ -209,6 +215,29 @@ class User extends Authenticatable implements MustVerifyEmail
 ```
 
 and include the **verified** middleware in your routes.
+
+If you have a custom registration page and need to manually generate the
+verification URL, you can send the notification like this:
+
+```php
+use Illuminate\Support\Facades\URL;
+
+$notification = new \Filament\Notifications\Auth\VerifyEmail();
+$notification->url = URL::temporarySignedRoute(
+    'filament.actor.auth.email-verification.verify',
+    now()->addMinutes(config('auth.verification.expire', 60)),
+    [
+        'id' => $user->getKey(),
+        'hash' => sha1($user->getEmailForVerification()),
+    ]
+);
+
+$user->notify($notification);
+
+Auth::login($user);
+```
+
+> **Note** The `notify()` call must occur **before** logging in the user.
 
 #### User Request Password Reset
 
@@ -550,8 +579,8 @@ You should also include the filetype.
 
         $data = [
             'content'       => TokenHelper::replace($template->content, $this),
-            'preHeaderText' => TokenHelper::replace($template->preheader, $this),
-            'title'         => TokenHelper::replace($template->title, $this)
+            'preHeaderText' => TokenHelper::replace($template->preheader ?? '', $this),
+            'title'         => TokenHelper::replace($template->title ?? '', $this)
         ];
 
         return $this->from($template->from['email'],$template->from['name'])

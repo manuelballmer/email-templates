@@ -2,7 +2,7 @@
 
 namespace Manuelballmer\EmailTemplates\Tests;
 
-use AmidEsfahani\FilamentTinyEditor\TinyeditorServiceProvider;
+use Visualbuilder\FilamentTinyEditor\TinyeditorServiceProvider;
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
 use Filament\Actions\ActionsServiceProvider;
@@ -36,6 +36,7 @@ class TestCase extends Orchestra
         );
 
         Config::set('filament-email-templates.recipients', ['\\Manuelballmer\\EmailTemplates\\Tests\\Models\\User']);
+        Config::set('auth.providers.users.model', User::class);
     }
 
     protected function getPackageProviders($app): array

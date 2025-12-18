@@ -22,8 +22,8 @@ use Manuelballmer\EmailTemplates\Facades\TokenHelper;
  * @property array $from
  * @property string $name
  * @property string $view
- * @property object $cc
- * @property object $bcc
+ * @property array $cc
+ * @property array $bcc
  * @property string $subject
  * @property string $title
  * @property string $preheader
@@ -52,6 +52,8 @@ class EmailTemplate extends Model
         'content',
         'language',
         'logo',
+        'cc',
+        'bcc'
 
     ];
 
@@ -63,6 +65,8 @@ class EmailTemplate extends Model
         'created_at' => 'datetime:Y-m-d H:i:s',
         'updated_at' => 'datetime:Y-m-d H:i:s',
         'from' => 'array',
+        'cc' => 'array',
+        'bcc' => 'array',
     ];
     /**
      * @var string[]
@@ -80,6 +84,23 @@ class EmailTemplate extends Model
     {
         parent::__construct($attributes);
         $this->setTableFromConfig();
+        // Include the theme foreign key as a fillable attribute
+        $this->fillable[] = config('filament-email-templates.theme_table_name') . '_id';
+    }
+
+    /**
+     * Remove temporary logo fields before mass assignment.
+     */
+    public function fill(array $attributes)
+    {
+        if (isset($attributes['logo_url'])) {
+            if (($attributes['logo_type'] ?? null) === 'paste_url' && $attributes['logo_url']) {
+                $attributes['logo'] = $attributes['logo_url'];
+            }
+            unset($attributes['logo_url'], $attributes['logo_type']);
+        }
+
+        return parent::fill($attributes);
     }
 
     /**

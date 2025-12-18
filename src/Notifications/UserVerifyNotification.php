@@ -1,17 +1,17 @@
 <?php
 
-namespace Manuelballmer\EmailTemplates\Notifications;
+namespace Visualbuilder\EmailTemplates\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
-use Manuelballmer\EmailTemplates\Mail\UserLockedOutEmail;
+use Visualbuilder\EmailTemplates\Mail\UserVerifiedEmail;
+use Visualbuilder\EmailTemplates\Mail\UserVerifyEmail;
 
-// implements ShouldQueue
-class UserLockoutNotification extends Notification
+class UserVerifyNotification extends Notification
 {
     use Queueable;
 
+    public $url;
     /**
      * Create a new notification instance.
      *
@@ -30,9 +30,7 @@ class UserLockoutNotification extends Notification
      */
     public function via($notifiable)
     {
-        return config('filament-email-templates.send_emails.locked_out')
-            ? ['mail']
-            : [];
+        return ['mail'];
     }
 
     /**
@@ -43,7 +41,9 @@ class UserLockoutNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        return app(UserLockedOutEmail::class, ['user' => $notifiable]);
+
+            return app(UserVerifyEmail::class, ['user' => $notifiable,'verificationUrl' => $this->url]);
+
     }
 
     /**
@@ -54,6 +54,8 @@ class UserLockoutNotification extends Notification
      */
     public function toArray($notifiable)
     {
-        return [ ];
+        return [
+
+            ];
     }
 }

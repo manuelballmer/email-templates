@@ -4,6 +4,7 @@ namespace Manuelballmer\EmailTemplates\Helpers;
 
 use Exception;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Manuelballmer\EmailTemplates\Contracts\CreateMailableInterface;
 
