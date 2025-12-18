@@ -33,6 +33,7 @@ use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource\Pages;
 class EmailTemplateResource extends Resource
 {
     protected static ?string $model = EmailTemplate::class;
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
 
     public static function shouldRegisterNavigation(): bool
     {

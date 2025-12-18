@@ -34,7 +34,9 @@ return new class extends Migration
                  $table->string('logo', 191)->nullable();
                  $table->timestamps();
                  $table->softDeletes();
-                 $table->foreignUuid($tenantColumnName)->references('id')->on($tenantTableName)->nullable;  //todo if its int 
+                 // Tenant ownership column (e.g., team_id)
+                 $table->foreignUuid($tenantColumnName)->nullable();
+                 $table->foreign($tenantColumnName)->references('id')->on($tenantTableName)->nullOnDelete();  //todo if its int 
                  $table->unique(['key', 'language']);
                  $table->foreign($columnName)->references('id')->on(config('filament-email-templates.theme_table_name'))->onDelete('set null');
              });

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
@@ -79,6 +80,26 @@ class EmailTemplate extends Model
     {
         parent::__construct($attributes);
         $this->setTableFromConfig();
+    }
+
+    /**
+     * Tenant ownership relationship for Filament tenancy (defaults to 'team').
+     *
+     * The target model class and foreign key can be customized via the
+     * filament-email-templates config:
+     * - tenant_model (default: 'Team' => App\Models\Team)
+     * - tenant_foreign_column_name (default: 'team_id')
+     */
+    public function team(): BelongsTo
+    {
+        $tenantModel = config('filament-email-templates.tenant_model', 'Team');
+        if (! str_contains($tenantModel, '\\')) {
+            $tenantModel = 'App\\Models\\' . ltrim($tenantModel, '\\');
+        }
+
+        $foreignKey = config('filament-email-templates.tenant_foreign_column_name', 'team_id');
+
+        return $this->belongsTo($tenantModel, $foreignKey);
     }
 
     protected static function boot()

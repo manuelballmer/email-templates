@@ -18,6 +18,7 @@ use Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource\Pages;
 class EmailTemplateThemeResource extends Resource
 {
     protected static ?string $model = EmailTemplateTheme::class;
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
 
 
     public static function shouldRegisterNavigation(): bool
