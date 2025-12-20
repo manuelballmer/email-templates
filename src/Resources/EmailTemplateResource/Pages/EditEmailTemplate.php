@@ -9,8 +9,6 @@ use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Manuelballmer\EmailTemplates\Models\EmailTemplate;
 use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource;
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
 
 class EditEmailTemplate extends EditRecord
