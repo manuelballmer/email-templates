@@ -5,7 +5,6 @@ namespace Manuelballmer\EmailTemplates\Resources\EmailTemplateResource\Pages;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Manuelballmer\EmailTemplates\Models\EmailTemplate;
 use Manuelballmer\EmailTemplates\Resources\EmailTemplateResource;
@@ -39,7 +38,7 @@ class EditEmailTemplate extends EditRecord
     {
         $data['logo_type'] = 'browse_another';
 
-        if (!is_null($data['logo']) && Str::isUrl($data['logo'])) {
+        if (!is_null($data['logo']) && \Illuminate\Support\Str::isUrl($data['logo'])) {
             $data['logo_type'] = 'paste_url';
             $data['logo_url'] = $data['logo'];
         }
