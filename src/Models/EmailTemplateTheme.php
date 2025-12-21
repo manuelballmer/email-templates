@@ -40,6 +40,8 @@ class EmailTemplateTheme extends Model
     {
         parent::__construct($attributes);
         $this->setTableFromConfig();
+        // Include the tenant foreign key as a fillable attribute
+        $this->fillable[] = config('filament-email-templates.tenant_foreign_column_name');
     }
 
     public function setTableFromConfig()
@@ -50,5 +52,32 @@ class EmailTemplateTheme extends Model
     protected static function newFactory()
     {
         return EmailTemplateThemeFactory::new();
+    }
+
+    /**
+     * Get the team that owns this email template theme
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function team()
+    {
+        $tenantModel = config('filament-email-templates.tenant_model');
+        $tenantColumnName = config('filament-email-templates.tenant_foreign_column_name');
+        
+        // Try to resolve the model class dynamically
+        // First try App\Models\{Model}, then just {Model}
+        $modelClass = null;
+        if (class_exists("App\\Models\\{$tenantModel}")) {
+            $modelClass = "App\\Models\\{$tenantModel}";
+        } elseif (class_exists($tenantModel)) {
+            $modelClass = $tenantModel;
+        }
+        
+        if ($modelClass) {
+            return $this->belongsTo($modelClass, $tenantColumnName);
+        }
+        
+        // Fallback: return a relation that will fail gracefully if model doesn't exist
+        return $this->belongsTo(\Illuminate\Database\Eloquent\Model::class, $tenantColumnName);
     }
 }
