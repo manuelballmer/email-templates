@@ -23,8 +23,11 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
+use Filament\Support\Enums\FontWeight;
 use Filament\Tables;
+use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -89,20 +92,33 @@ class EmailTemplateResource extends Resource
                 ->query(EmailTemplate::query())
                 ->columns(
                         [
-                                TextColumn::make('id')
-                                        ->sortable()
-                                        ->searchable(),
-                                TextColumn::make('name')
-                                        ->limit(50)
-                                        ->sortable()
-                                        ->searchable(),
-                                TextColumn::make('language')
-                                        ->limit(50),
-                                TextColumn::make('subject')
-                                        ->searchable()
-                                        ->limit(50),
+                                Stack::make([
+                                        ViewColumn::make('preview')
+                                                ->view('vb-email-templates::tables.columns.preview-thumbnail'),
+
+                                        TextColumn::make('name')
+                                                ->weight(FontWeight::Bold)
+                                                ->size(TextColumn\TextColumnSize::Large)
+                                                ->searchable()
+                                                ->sortable(),
+
+                                        TextColumn::make('subject')
+                                                ->color('gray')
+                                                ->size(TextColumn\TextColumnSize::Small)
+                                                ->searchable()
+                                                ->limit(60),
+
+                                        TextColumn::make('language')
+                                                ->badge()
+                                                ->color('info'),
+                                ]),
                         ]
                 )
+                ->contentGrid([
+                        'md' => 2,
+                        'lg' => 3,
+                        'xl' => 4,
+                ])
                 ->filters(
                         [
                                 Tables\Filters\TrashedFilter::make(),
