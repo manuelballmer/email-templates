@@ -24,6 +24,7 @@ use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\FontWeight;
+use Filament\Support\Enums\TextSize;
 use Filament\Tables;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
@@ -98,13 +99,13 @@ class EmailTemplateResource extends Resource
 
                                         TextColumn::make('name')
                                                 ->weight(FontWeight::Bold)
-                                                ->size(TextColumn\TextColumnSize::Large)
+                                                ->size(TextSize::Large)
                                                 ->searchable()
                                                 ->sortable(),
 
                                         TextColumn::make('subject')
                                                 ->color('gray')
-                                                ->size(TextColumn\TextColumnSize::Small)
+                                                ->size(TextSize::Small)
                                                 ->searchable()
                                                 ->limit(60),
 
