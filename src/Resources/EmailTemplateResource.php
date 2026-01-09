@@ -167,6 +167,7 @@ class EmailTemplateResource extends Resource
                                         ->iconButton(),
                         ]
                 )
+                ->actionsAlignment(\Filament\Support\Enums\Alignment::End)
                 ->bulkActions(
                         [
                                 DeleteBulkAction::make(),
