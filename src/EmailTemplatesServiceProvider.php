@@ -23,6 +23,7 @@ class EmailTemplatesServiceProvider extends PackageServiceProvider
             ->hasAssets()
             ->hasTranslations()
             ->hasViews('vb-email-templates')
+            ->hasRoute('web')
             ->runsMigrations()
             ->hasCommands([
                 InstallCommand::class,

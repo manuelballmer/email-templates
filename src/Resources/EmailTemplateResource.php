@@ -107,19 +107,19 @@ class EmailTemplateResource extends Resource
                                                 ->color('gray')
                                                 ->size(TextSize::Small)
                                                 ->searchable()
-                                                ->limit(60),
+                                                ->limit(50),
 
                                         TextColumn::make('language')
                                                 ->badge()
                                                 ->color('info'),
-                                ]),
+                                ])->space(2),
                         ]
                 )
                 ->contentGrid([
                         'md' => 2,
-                        'lg' => 3,
-                        'xl' => 4,
+                        'xl' => 3,
                 ])
+                ->recordUrl(fn (EmailTemplate $record): string => static::getUrl('edit', ['record' => $record]))
                 ->filters(
                         [
                                 Tables\Filters\TrashedFilter::make(),
@@ -127,14 +127,30 @@ class EmailTemplateResource extends Resource
                 )
                 ->actions(
                         [
+                                ViewAction::make()
+                                        ->label(__('vb-email-templates::email-templates.actions.preview'))
+                                        ->iconButton()
+                                        ->icon('heroicon-o-eye')
+                                        ->modalContent(fn(EmailTemplate $record): View => view(
+                                                'vb-email-templates::forms.components.iframe',
+                                                ['record' => $record],
+                                        ))
+                                        ->modalHeading(fn(EmailTemplate $record): string => __('vb-email-templates::email-templates.actions.preview').': '.$record->name)
+                                        ->modalSubmitAction(false)
+                                        ->modalCancelAction(false)
+                                        ->slideOver(),
+
+                                EditAction::make()
+                                        ->iconButton(),
+
+                                DeleteAction::make()
+                                        ->iconButton(),
+
                                 Action::make('create-mail-class')
-                                        ->label("Build Class")
-                                        //Only show the button if the file does not exist
-                                        ->visible(function (EmailTemplate $record) {
-                                            return !$record->mailable_exists;
-                                        })
-                                        ->icon('heroicon-o-document-text')
-                                        // ->action('createMailClass'),
+                                        ->iconButton()
+                                        ->icon('heroicon-o-code-bracket')
+                                        ->tooltip('Mailable-Klasse erstellen')
+                                        ->visible(fn (EmailTemplate $record) => !$record->mailable_exists)
                                         ->action(function (EmailTemplate $record) {
                                             $notify = app(CreateMailableInterface::class)->createMailable($record);
                                             Notification::make()
@@ -142,28 +158,12 @@ class EmailTemplateResource extends Resource
                                                     ->icon($notify->icon)
                                                     ->iconColor($notify->icon_color)
                                                     ->duration(10000)
-                                                    //Fix for bug where body hides the icon
                                                     ->body("<span style='overflow-wrap: anywhere;'>".$notify->body."</span>")
                                                     ->send();
                                         }),
-                                ViewAction::make('Preview')
-                                        ->icon('heroicon-o-magnifying-glass')
-                                        ->modalContent(fn(EmailTemplate $record): View => view(
-                                                'vb-email-templates::forms.components.iframe',
-                                                ['record' => $record],
-                                        ))
-                                        ->modalHeading(fn(EmailTemplate $record): string => 'Preview Email: '.$record->name)
-                                        ->modalSubmitAction(false)
-                                        ->modalCancelAction(false)
-                                        ->slideOver(),
 
-                                EditAction::make(),
-                                DeleteAction::make(),
-                                ForceDeleteAction::make()
-                                        ->before(function (EmailTemplate $record, EmailTemplateResource $emailTemplateResource) {
-                                            $emailTemplateResource->handleLogoDelete($record->logo);
-                                        }),
-                                RestoreAction::make(),
+                                RestoreAction::make()
+                                        ->iconButton(),
                         ]
                 )
                 ->bulkActions(
@@ -211,7 +211,16 @@ class EmailTemplateResource extends Resource
                                                                                         column: 'key',
                                                                                         ignoreRecord: true,
                                                                                         modifyRuleUsing: function (Unique $rule, $get) {
-                                                                                            return $rule->where('language', $get('language'));
+                                                                                            $tenantColumn = config('filament-email-templates.tenant_foreign_column_name', 'team_id');
+                                                                                            $tenant = \Filament\Facades\Filament::getTenant();
+                                                                                            
+                                                                                            $rule->where('language', $get('language'));
+                                                                                            
+                                                                                            if ($tenant) {
+                                                                                                $rule->where($tenantColumn, $tenant->getKey());
+                                                                                            }
+                                                                                            
+                                                                                            return $rule;
                                                                                         })
                                                                                 ->maxLength(191),
                                                                         Select::make('language')

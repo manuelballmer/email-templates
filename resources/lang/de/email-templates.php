@@ -66,5 +66,11 @@ return [
         'singular' => 'E-Mail-Vorlagen-Thema',
         'plural' => 'E-Mail-Vorlagen-Themen',
     ],
-    
+    'actions' => [
+        'preview' => 'Vorschau',
+        'edit' => 'Bearbeiten',
+        'delete' => 'Löschen',
+        'restore' => 'Wiederherstellen',
+        'create-mailable' => 'Mailable-Klasse erstellen',
+    ],
 ];

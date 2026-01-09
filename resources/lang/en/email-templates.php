@@ -73,6 +73,14 @@ return [
     'theme_resource_name' => [
         'singular' => 'Email Template Theme',
         'plural'   => 'Email Template Themes',
-    ]
+    ],
+
+    'actions' => [
+        'preview' => 'Preview',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'restore' => 'Restore',
+        'create-mailable' => 'Create Mailable Class',
+    ],
 
 ];

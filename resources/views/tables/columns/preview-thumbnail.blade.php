@@ -1,13 +1,14 @@
-<div class="aspect-[4/3] w-full overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
-    <div class="relative h-full w-full">
+@php
+    $record = $getRecord();
+    $previewUrl = url("/email-templates/{$record->getKey()}/preview");
+@endphp
+<div class="mb-4 h-[200px] w-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-900">
+    <div class="relative h-[1000px] w-[1400px] origin-top-left scale-[0.14]">
         <iframe
-            src="data:text/html;base64,{{ $getRecord()->getBase64EmailPreviewData() }}"
-            class="pointer-events-none h-full w-full origin-top-left"
-            style="transform: scale(0.25); width: 400%; height: 400%;"
+            src="{{ $previewUrl }}"
+            class="pointer-events-none absolute inset-0 h-full w-full border-0 bg-white"
             loading="lazy"
-            sandbox
+            scrolling="no"
         ></iframe>
-        {{-- Overlay für bessere Klickbarkeit --}}
-        <div class="absolute inset-0 bg-transparent"></div>
     </div>
 </div>
