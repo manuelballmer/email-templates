@@ -94,33 +94,23 @@ class EmailTemplateResource extends Resource
                 ->query(EmailTemplate::query())
                 ->columns(
                         [
-                                Stack::make([
-                                        ViewColumn::make('preview')
-                                                ->view('vb-email-templates::tables.columns.preview-thumbnail'),
+                                TextColumn::make('name')
+                                        ->label(__('vb-email-templates::email-templates.form-fields-labels.template-name'))
+                                        ->weight(FontWeight::Bold)
+                                        ->searchable()
+                                        ->sortable(),
 
-                                        TextColumn::make('name')
-                                                ->weight(FontWeight::Bold)
-                                                ->size(TextSize::Large)
-                                                ->searchable()
-                                                ->sortable(),
+                                TextColumn::make('subject')
+                                        ->label(__('vb-email-templates::email-templates.form-fields-labels.subject'))
+                                        ->searchable()
+                                        ->limit(50),
 
-                                        TextColumn::make('subject')
-                                                ->color('gray')
-                                                ->size(TextSize::Small)
-                                                ->searchable()
-                                                ->limit(50),
-
-                                        TextColumn::make('language')
-                                                ->badge()
-                                                ->color('info'),
-                                ])->space(2),
+                                TextColumn::make('language')
+                                        ->label(__('vb-email-templates::email-templates.form-fields-labels.lang'))
+                                        ->badge()
+                                        ->color('info'),
                         ]
                 )
-                ->contentGrid([
-                        'md' => 2,
-                        'xl' => 3,
-                ])
-                ->recordUrl(fn (EmailTemplate $record): string => static::getUrl('edit', ['record' => $record]))
                 ->filters(
                         [
                                 Tables\Filters\TrashedFilter::make(),
@@ -130,8 +120,8 @@ class EmailTemplateResource extends Resource
                         [
                                 ViewAction::make()
                                         ->label(__('vb-email-templates::email-templates.actions.preview'))
-                                        ->iconButton()
                                         ->icon('heroicon-o-eye')
+                                        ->color('primary')
                                         ->modalContent(fn(EmailTemplate $record): View => view(
                                                 'vb-email-templates::forms.components.iframe',
                                                 ['record' => $record],
@@ -139,18 +129,17 @@ class EmailTemplateResource extends Resource
                                         ->modalHeading(fn(EmailTemplate $record): string => __('vb-email-templates::email-templates.actions.preview').': '.$record->name)
                                         ->modalSubmitAction(false)
                                         ->modalCancelAction(false)
+                                        ->modalWidth('7xl')
                                         ->slideOver(),
 
-                                EditAction::make()
-                                        ->iconButton(),
+                                EditAction::make(),
 
-                                DeleteAction::make()
-                                        ->iconButton(),
+                                DeleteAction::make(),
 
                                 Action::make('create-mail-class')
-                                        ->iconButton()
+                                        ->label(__('vb-email-templates::email-templates.actions.create-mailable'))
                                         ->icon('heroicon-o-code-bracket')
-                                        ->tooltip('Mailable-Klasse erstellen')
+                                        ->color('success')
                                         ->visible(fn (EmailTemplate $record) => !$record->mailable_exists)
                                         ->action(function (EmailTemplate $record) {
                                             $notify = app(CreateMailableInterface::class)->createMailable($record);
@@ -163,11 +152,10 @@ class EmailTemplateResource extends Resource
                                                     ->send();
                                         }),
 
-                                RestoreAction::make()
-                                        ->iconButton(),
+                                RestoreAction::make(),
+                                ForceDeleteAction::make(),
                         ]
                 )
-                ->actionsAlignment('end')
                 ->bulkActions(
                         [
                                 DeleteBulkAction::make(),
