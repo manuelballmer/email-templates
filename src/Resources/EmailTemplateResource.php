@@ -113,6 +113,12 @@ class EmailTemplateResource extends Resource
                 )
                 ->filters(
                         [
+                                Tables\Filters\SelectFilter::make('language')
+                                        ->label(__('vb-email-templates::email-templates.form-fields-labels.lang'))
+                                        ->options(fn () => collect(config('filament-email-templates.languages', []))
+                                            ->mapWithKeys(fn ($value, $key) => [$key => $value['display'] . ' (' . $key . ')'])
+                                            ->toArray())
+                                        ->searchable(),
                                 Tables\Filters\TrashedFilter::make(),
                         ]
                 )
@@ -218,13 +224,33 @@ class EmailTemplateResource extends Resource
                                                                                 ->default(config('filament-email-templates.default_locale'))
                                                                                 ->searchable()
                                                                                 ->allowHtml(),
-                                                                        TextInput::make('from.email')->default(config('mail.from.address'))
+                                                                        TextInput::make('from.email')
                                                                                 ->label(__('vb-email-templates::email-templates.form-fields-labels.email-from'))
-                                                                                ->email(),
-                                                                        TextInput::make('from.name')->default(config('mail.from.name'))
+                                                                                ->email()
+                                                                                ->disabled()
+                                                                                ->dehydrated()
+                                                                                ->default(function () {
+                                                                                    $tenant = \Filament\Facades\Filament::getTenant();
+                                                                                    if ($tenant && method_exists($tenant, 'getMailFromAddress')) {
+                                                                                        return $tenant->getMailFromAddress();
+                                                                                    }
+                                                                                    return config('mail.from.address');
+                                                                                })
+                                                                                ->helperText(__('vb-email-templates::email-templates.form-fields-labels.from-auto-hint')),
+                                                                        TextInput::make('from.name')
                                                                                 ->label(__('vb-email-templates::email-templates.form-fields-labels.email-from-name'))
                                                                                 ->string()
-                                                                                ->maxLength(191),
+                                                                                ->maxLength(191)
+                                                                                ->disabled()
+                                                                                ->dehydrated()
+                                                                                ->default(function () {
+                                                                                    $tenant = \Filament\Facades\Filament::getTenant();
+                                                                                    if ($tenant && method_exists($tenant, 'getMailFromName')) {
+                                                                                        return $tenant->getMailFromName();
+                                                                                    }
+                                                                                    return config('mail.from.name');
+                                                                                })
+                                                                                ->helperText(__('vb-email-templates::email-templates.form-fields-labels.from-auto-hint')),
 
                                                                         Select::make('view')
                                                                                 ->label(__('vb-email-templates::email-templates.form-fields-labels.template-view'))

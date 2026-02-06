@@ -43,6 +43,17 @@ class EditEmailTemplate extends EditRecord
             $data['logo_url'] = $data['logo'];
         }
 
+        // Override from fields with current team values
+        $tenant = \Filament\Facades\Filament::getTenant();
+        if ($tenant) {
+            if (method_exists($tenant, 'getMailFromAddress')) {
+                $data['from']['email'] = $tenant->getMailFromAddress();
+            }
+            if (method_exists($tenant, 'getMailFromName')) {
+                $data['from']['name'] = $tenant->getMailFromName();
+            }
+        }
+
         return $data;
     }
 
@@ -50,6 +61,17 @@ class EditEmailTemplate extends EditRecord
     {
         $emailTemplateResource = new EmailTemplateResource();
         $sortedData = $emailTemplateResource->handleLogo($data);
+
+        // Ensure from fields use current team values
+        $tenant = \Filament\Facades\Filament::getTenant();
+        if ($tenant) {
+            if (method_exists($tenant, 'getMailFromAddress')) {
+                $sortedData['from']['email'] = $tenant->getMailFromAddress();
+            }
+            if (method_exists($tenant, 'getMailFromName')) {
+                $sortedData['from']['name'] = $tenant->getMailFromName();
+            }
+        }
 
         // deleting previous logo
         if ($record->logo != ($sortedData['logo'] ?? null)) {

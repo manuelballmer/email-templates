@@ -36,7 +36,7 @@ return [
         'logo-hint' => '(Sfoglia immagine)',
         'logo-url' => 'URL del logo',
         'logo-url-hint' => '(Incolla URL immagine qui)',
-
+        'from-auto-hint' => 'Impostato automaticamente dalle impostazioni del team',
     ],
     'resource_name' => [
         'singular' => 'Modello di email',

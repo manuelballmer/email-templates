@@ -38,7 +38,7 @@ return [
         'logo-hint' => '(Bild durchsuchen)',
         'logo-url' => 'Logotyp-URL',
         'logo-url-hint' => '(Fügen Sie hier die Bild-URL ein)',
-
+        'from-auto-hint' => 'Wird automatisch vom Team übernommen',
     ],
     'resource_name' => [
         'singular' => 'E-Mail-Vorlage',

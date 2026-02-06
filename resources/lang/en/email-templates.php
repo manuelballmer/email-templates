@@ -43,6 +43,7 @@ return [
         'logo-hint'          => '(Browse image)',
         'logo-url'           => 'Logo Url',
         'logo-url-hint'      => '(Paste image url here)',
+        'from-auto-hint'     => 'Automatically set from team settings',
     ],
 
     'resource_name' => [
