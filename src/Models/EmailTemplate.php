@@ -110,12 +110,12 @@ class EmailTemplate extends Model
 
         // When an email template is updated
         static::updated(function ($template) {
-            self::clearEmailTemplateCache($template->key, $template->language);
+            self::clearEmailTemplateCache($template->key, $template->language, $template->team_id ?? null);
         });
 
         // When an email template is deleted
         static::deleted(function ($template) {
-            self::clearEmailTemplateCache($template->key, $template->language);
+            self::clearEmailTemplateCache($template->key, $template->language, $template->team_id ?? null);
         });
     }
 
@@ -124,23 +124,36 @@ class EmailTemplate extends Model
         $this->table = config('filament-email-templates.table_name');
     }
 
-    public static function findEmailByKey($key, $language = null)
+    public static function findEmailByKey($key, $language = null, $teamId = null)
     {
         $cacheKey = "email_by_key_{$key}_{$language}";
 
-        //For multi site domains this key will need to include the site_id
-        return Cache::remember($cacheKey, now()->addMinutes(60), function () use ($key, $language) {
-            return self::query()
+        if ($teamId) {
+            $cacheKey .= "_{$teamId}";
+        }
+
+        return Cache::remember($cacheKey, now()->addMinutes(60), function () use ($key, $language, $teamId) {
+            $query = self::query()
                 ->language($language ?? config('filament-email-templates.default_locale'))
-                ->where("key", $key)
-                ->firstOrFail();
+                ->where("key", $key);
+
+            if ($teamId) {
+                $query->where('team_id', $teamId);
+            }
+
+            return $query->firstOrFail();
         });
     }
 
-    public static function clearEmailTemplateCache($key, $language)
+    public static function clearEmailTemplateCache($key, $language, $teamId = null)
     {
         $cacheKey = "email_by_key_{$key}_{$language}";
         Cache::forget($cacheKey);
+
+        // Also clear team-specific cache if applicable
+        if ($teamId) {
+            Cache::forget("{$cacheKey}_{$teamId}");
+        }
     }
 
     /**

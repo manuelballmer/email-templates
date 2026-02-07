@@ -27,7 +27,7 @@ return [
         'subject' => 'Betreffzeile',
         'header' => 'Vorschautext',
         'header-hint' => '(Wird nur in einigen E-Mail-Clients angezeigt)',
-        'theme' => 'Thema',
+        'theme' => 'Layout',
         'title' => 'Titel',
         'title-hint' => '(Wird ganz oben in der E-Mail gross angezeigt)',
         'content' => 'Inhalt',
@@ -63,8 +63,8 @@ return [
         'content' => 'Inhalt',
     ],
     'theme_resource_name' => [
-        'singular' => 'E-Mail-Vorlagen-Thema',
-        'plural' => 'E-Mail-Vorlagen-Themen',
+        'singular' => 'E-Mail-Vorlagen-Layout',
+        'plural' => 'E-Mail-Vorlagen-Layouts',
     ],
     
 ];

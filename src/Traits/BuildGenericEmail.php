@@ -19,7 +19,8 @@ trait BuildGenericEmail
      */
     public function build()
     {
-        $this->emailTemplate = EmailTemplate::findEmailByKey($this->template, App::currentLocale());
+        $teamId = property_exists($this, 'team') && $this->team ? $this->team->id ?? null : null;
+        $this->emailTemplate = EmailTemplate::findEmailByKey($this->template, App::currentLocale(), $teamId);
 
         if(!$this->emailTemplate) {
             Log::warning("Email template {$this->emailtemplate} was not found.");
