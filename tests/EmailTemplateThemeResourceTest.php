@@ -3,12 +3,12 @@
 use function Pest\Laravel\get;
 use function Pest\Livewire\livewire;
 
-use Visualbuilder\EmailTemplates\Models\EmailTemplateTheme;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource\Pages\CreateEmailTemplateTheme;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource\Pages\EditEmailTemplateTheme;
-use Visualbuilder\EmailTemplates\Resources\EmailTemplateThemeResource\Pages\ListEmailTemplateThemes;
+use Manuelballmer\EmailTemplates\Models\EmailTemplateTheme;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource\Pages\CreateEmailTemplateTheme;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource\Pages\EditEmailTemplateTheme;
+use Manuelballmer\EmailTemplates\Resources\EmailTemplateThemeResource\Pages\ListEmailTemplateThemes;
 
 beforeEach(function () {
     $this->markTestSkipped('Livewire tests temporarily disabled');

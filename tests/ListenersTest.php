@@ -5,13 +5,13 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Notification;
-use Visualbuilder\EmailTemplates\Tests\Models\User;
-use Visualbuilder\EmailTemplates\Notifications\UserLoginNotification;
-use Visualbuilder\EmailTemplates\Notifications\UserRegisteredNotification;
-use Visualbuilder\EmailTemplates\Notifications\UserPasswordResetNotification;
-use Visualbuilder\EmailTemplates\Notifications\UserLockoutNotification;
-use Visualbuilder\EmailTemplates\Notifications\UserVerifiedNotification;
-use Visualbuilder\EmailTemplates\Listeners\UserLockoutListener;
+use Manuelballmer\EmailTemplates\Tests\Models\User;
+use Manuelballmer\EmailTemplates\Notifications\UserLoginNotification;
+use Manuelballmer\EmailTemplates\Notifications\UserRegisteredNotification;
+use Manuelballmer\EmailTemplates\Notifications\UserPasswordResetNotification;
+use Manuelballmer\EmailTemplates\Notifications\UserLockoutNotification;
+use Manuelballmer\EmailTemplates\Notifications\UserVerifiedNotification;
+use Manuelballmer\EmailTemplates\Listeners\UserLockoutListener;
 
 it('sends login notification based on config flag', function () {
     $user = User::factory()->create();

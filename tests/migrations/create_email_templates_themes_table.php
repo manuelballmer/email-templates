@@ -17,6 +17,7 @@ return new class () extends Migration {
             $table->string('name', 191)->nullable()->comment('Name');
             $table->json('colours')->nullable();
             $table->boolean('is_default')->default(0)->comment('1: Active | 0: Not Active');
+            $table->unsignedBigInteger('team_id')->nullable()->comment('Optional tenancy scope');
             $table->softDeletes();
             $table->timestamps();
         });

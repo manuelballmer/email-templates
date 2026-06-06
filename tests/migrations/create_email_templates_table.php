@@ -28,6 +28,7 @@ return new class () extends Migration {
             $table->string('title', 50)->nullable()->comment('First line of email h1 string');
             $table->text('content')->nullable();
             $table->string('logo', 191)->nullable();
+            $table->unsignedBigInteger('team_id')->nullable()->comment('Optional tenancy scope');
             $table->timestamps();
             $table->softDeletes();
             $table->unique(['key', 'language']);

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
 
 it('returns default language when locale missing and caches result', function () {
     Cache::flush();
@@ -51,17 +51,17 @@ it('returns the mailable FQCN when the class exists', function () {
     $key = 'fake-mailable';
     EmailTemplate::factory()->create(['key' => $key]);
 
-    $classDir = app_path('Mail/Visualbuilder/EmailTemplates');
+    $classDir = app_path('Mail/Manuelballmer/EmailTemplates');
     File::ensureDirectoryExists($classDir);
 
     $filePath = $classDir . '/FakeMailable.php';
-    File::put($filePath, "<?php\nnamespace App\\Mail\\Visualbuilder\\EmailTemplates;\nuse Illuminate\\Mail\\Mailable;\nclass FakeMailable extends Mailable {}\n");
+    File::put($filePath, "<?php\nnamespace App\\Mail\\Manuelballmer\\EmailTemplates;\nuse Illuminate\\Mail\\Mailable;\nclass FakeMailable extends Mailable {}\n");
     require_once $filePath;
 
     $template = EmailTemplate::firstWhere('key', $key);
     $fqcn = $template->getMailableClass();
 
-    expect($fqcn)->toBe('App\\Mail\\Visualbuilder\\EmailTemplates\\FakeMailable');
+    expect($fqcn)->toBe('App\\Mail\\Manuelballmer\\EmailTemplates\\FakeMailable');
     File::delete($filePath);
 });
 

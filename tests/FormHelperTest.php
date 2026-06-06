@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\File;
-use Visualbuilder\EmailTemplates\Helpers\FormHelper;
+use Manuelballmer\EmailTemplates\Helpers\FormHelper;
 
 it('recursively collects blade views and ignores underscore directories', function () {
     $baseDir = base_path('tests/tmp/views');

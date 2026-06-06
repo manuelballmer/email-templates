@@ -1,6 +1,6 @@
 <?php
 
-use Visualbuilder\EmailTemplates\DefaultTokenHelper;
+use Manuelballmer\EmailTemplates\DefaultTokenHelper;
 
 function makeModels(): object {
     $themeColours = [

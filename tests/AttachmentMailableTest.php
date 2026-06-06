@@ -2,9 +2,9 @@
 
 use Illuminate\Mail\Mailable;
 use Illuminate\Http\UploadedFile;
-use Visualbuilder\EmailTemplates\Models\EmailTemplate;
-use Visualbuilder\EmailTemplates\Tests\Models\User;
-use Visualbuilder\EmailTemplates\Traits\BuildGenericEmail;
+use Manuelballmer\EmailTemplates\Models\EmailTemplate;
+use Manuelballmer\EmailTemplates\Tests\Models\User;
+use Manuelballmer\EmailTemplates\Traits\BuildGenericEmail;
 
 it('attaches a file when building the mailable', function () {
     EmailTemplate::factory()->create([
